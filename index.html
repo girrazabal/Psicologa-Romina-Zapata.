@@ -1,0 +1,1018 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lic. Romina Zapata — Psicóloga Clínica</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Nunito:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+/* ===== VARIABLES ===== */
+:root {
+  --blush: #f0ddd6;
+  --rose: #c9897a;
+  --rosedark: #a86b5e;
+  --sage: #8fa88a;
+  --sagedark: #6b8866;
+  --cream: #faf6f2;
+  --warmwhite: #fff9f5;
+  --text: #3d2f2b;
+  --textlight: #7a635e;
+  --textmuted: #b09890;
+  --gold: #c4a882;
+  --shadow: rgba(90,50,40,0.10);
+}
+
+/* ===== RESET ===== */
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+
+body{
+  background:var(--cream);
+  color:var(--text);
+  font-family:'Nunito',sans-serif;
+  font-weight:300;
+  overflow-x:hidden;
+}
+
+/* ===== SVG FLOWER BACKGROUNDS ===== */
+.floral-bg{
+  position:fixed;top:0;left:0;width:100%;height:100%;
+  pointer-events:none;z-index:0;opacity:0.18;
+}
+
+/* ===== HERO ===== */
+.hero{
+  position:relative;
+  min-height:100vh;
+  background: linear-gradient(160deg, #f9ece7 0%, #f5ede3 40%, #eef1ea 100%);
+  display:flex;align-items:center;justify-content:center;
+  overflow:hidden;
+  padding:60px 20px;
+}
+
+.hero-floral{
+  position:absolute;inset:0;pointer-events:none;overflow:hidden;
+}
+
+.hero-inner{
+  position:relative;z-index:2;
+  display:flex;align-items:center;gap:70px;
+  max-width:1000px;width:100%;
+  flex-wrap:wrap;justify-content:center;
+}
+
+.hero-photo-wrap{
+  position:relative;
+  flex-shrink:0;
+}
+.hero-photo-wrap::before{
+  content:'';
+  position:absolute;
+  inset:-14px;
+  border:2px solid var(--rose);
+  border-radius:50% 42% 56% 38% / 48% 52% 44% 50%;
+  opacity:0.35;
+  animation:morphBorder 7s ease-in-out infinite alternate;
+}
+.hero-photo-wrap::after{
+  content:'';
+  position:absolute;
+  inset:-28px;
+  border:1px solid var(--gold);
+  border-radius:38% 56% 42% 52% / 52% 44% 50% 48%;
+  opacity:0.2;
+  animation:morphBorder 9s ease-in-out infinite alternate-reverse;
+}
+@keyframes morphBorder{
+  0%{border-radius:50% 42% 56% 38% / 48% 52% 44% 50%;}
+  50%{border-radius:44% 56% 38% 60% / 54% 40% 58% 42%;}
+  100%{border-radius:60% 36% 48% 52% / 40% 58% 42% 56%;}
+}
+
+.hero-photo{
+  width:240px;height:240px;
+  object-fit:cover;object-position:top center;
+  border-radius:50% 42% 56% 38% / 48% 52% 44% 50%;
+  animation:morphPhoto 7s ease-in-out infinite alternate;
+  box-shadow:0 20px 60px rgba(200,120,100,0.22), 0 4px 15px rgba(90,50,40,0.08);
+  display:block;
+}
+@keyframes morphPhoto{
+  0%{border-radius:50% 42% 56% 38% / 48% 52% 44% 50%;}
+  50%{border-radius:44% 56% 38% 60% / 54% 40% 58% 42%;}
+  100%{border-radius:60% 36% 48% 52% / 40% 58% 42% 56%;}
+}
+
+.hero-text{text-align:left;}
+.hero-tag{
+  font-family:'Nunito',sans-serif;
+  font-size:0.72rem;letter-spacing:0.22em;text-transform:uppercase;
+  color:var(--sage);font-weight:500;margin-bottom:10px;
+  display:inline-block;
+}
+.hero-name{
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(2.6rem,6vw,4.2rem);
+  font-weight:300;line-height:1.1;
+  color:var(--text);
+  margin-bottom:8px;
+}
+.hero-name em{
+  font-style:italic;color:var(--rose);
+}
+.hero-subtitle{
+  font-size:0.92rem;color:var(--textlight);
+  margin-bottom:28px;letter-spacing:0.04em;
+}
+.hero-badge{
+  display:inline-flex;align-items:center;gap:8px;
+  background:rgba(255,255,255,0.65);backdrop-filter:blur(6px);
+  border:1px solid rgba(200,140,120,0.25);
+  border-radius:40px;padding:8px 18px;
+  font-size:0.78rem;color:var(--rosedark);
+  margin-bottom:32px;
+}
+.hero-badge span{font-size:1rem;}
+.hero-cta{
+  display:inline-flex;align-items:center;gap:10px;
+  background:var(--rose);color:#fff;
+  padding:14px 32px;border-radius:50px;
+  text-decoration:none;font-size:0.88rem;font-weight:600;
+  letter-spacing:0.04em;transition:all 0.3s;
+  box-shadow:0 8px 28px rgba(201,137,122,0.38);
+}
+.hero-cta:hover{background:var(--rosedark);transform:translateY(-2px);box-shadow:0 12px 35px rgba(201,137,122,0.45);}
+.hero-cta svg{width:18px;height:18px;}
+
+/* ===== NAV ===== */
+nav{
+  position:sticky;top:0;z-index:100;
+  background:rgba(250,246,242,0.88);backdrop-filter:blur(12px);
+  border-bottom:1px solid rgba(200,140,120,0.15);
+  padding:0 20px;
+}
+.nav-inner{
+  max-width:1000px;margin:auto;
+  display:flex;align-items:center;justify-content:space-between;
+  height:60px;
+}
+.nav-logo{
+  font-family:'Cormorant Garamond',serif;
+  font-size:1.1rem;font-weight:400;color:var(--text);
+  letter-spacing:0.02em;
+}
+.nav-logo em{font-style:italic;color:var(--rose);}
+.nav-links{
+  display:flex;gap:28px;list-style:none;
+}
+.nav-links a{
+  font-size:0.8rem;letter-spacing:0.08em;text-transform:uppercase;
+  color:var(--textlight);text-decoration:none;font-weight:500;
+  transition:color 0.2s;
+}
+.nav-links a:hover{color:var(--rose);}
+
+/* ===== SECTION BASE ===== */
+section{
+  position:relative;
+  max-width:1000px;margin:0 auto;
+  padding:80px 24px;
+}
+
+.section-tag{
+  font-size:0.7rem;letter-spacing:0.22em;text-transform:uppercase;
+  color:var(--sage);font-weight:500;margin-bottom:10px;
+}
+.section-title{
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(2rem,5vw,3rem);
+  font-weight:300;line-height:1.2;margin-bottom:32px;
+  color:var(--text);
+}
+.section-title em{font-style:italic;color:var(--rose);}
+
+/* ===== DIVIDER ===== */
+.divider{
+  width:100%;height:2px;
+  background:linear-gradient(90deg,transparent,var(--blush),transparent);
+  margin:0;
+}
+
+/* ===== CARDS SERVICIOS ===== */
+.cards-grid{
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+  gap:24px;
+}
+.svc-card{
+  background:var(--warmwhite);
+  border:1px solid rgba(200,140,120,0.18);
+  border-radius:20px;padding:36px 32px;
+  position:relative;overflow:hidden;
+  transition:transform 0.3s,box-shadow 0.3s;
+}
+.svc-card::before{
+  content:'';position:absolute;top:-30px;right:-30px;
+  width:120px;height:120px;
+  border-radius:50%;
+  background:radial-gradient(circle,rgba(200,140,120,0.12),transparent 70%);
+  pointer-events:none;
+}
+.svc-card:hover{transform:translateY(-5px);box-shadow:0 20px 50px var(--shadow);}
+.svc-icon{
+  width:46px;height:46px;
+  background:linear-gradient(135deg,var(--blush),rgba(143,168,138,0.2));
+  border-radius:14px;margin-bottom:20px;
+  display:flex;align-items:center;justify-content:center;
+  font-size:1.4rem;
+}
+.svc-card h3{
+  font-family:'Cormorant Garamond',serif;
+  font-size:1.35rem;font-weight:400;margin-bottom:14px;color:var(--text);
+}
+.svc-card p{font-size:0.88rem;line-height:1.8;color:var(--textlight);margin-bottom:16px;}
+.svc-card ul{margin-left:0;list-style:none;}
+.svc-card ul li{
+  font-size:0.84rem;color:var(--textlight);
+  padding:5px 0;padding-left:18px;position:relative;
+}
+.svc-card ul li::before{
+  content:'·';position:absolute;left:0;
+  color:var(--rose);font-size:1.4rem;line-height:1;top:2px;
+}
+
+/* ===== INFO GRID ===== */
+.info-grid{
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));
+  gap:16px;margin-bottom:32px;
+}
+.info-pill{
+  background:var(--warmwhite);
+  border:1px solid rgba(200,140,120,0.18);
+  border-radius:16px;padding:24px 22px;
+  text-align:center;
+}
+.info-pill .label{
+  font-size:0.68rem;letter-spacing:0.14em;text-transform:uppercase;
+  color:var(--textmuted);margin-bottom:6px;
+}
+.info-pill .val{
+  font-family:'Cormorant Garamond',serif;
+  font-size:1.5rem;font-weight:400;color:var(--rosedark);
+}
+.info-pill .sub{
+  font-size:0.78rem;color:var(--textlight);margin-top:2px;
+}
+.highlight-box{
+  background:linear-gradient(135deg,rgba(240,221,214,0.5),rgba(234,240,234,0.5));
+  border:1px solid rgba(200,140,120,0.2);
+  border-radius:16px;padding:22px 26px;
+  display:flex;align-items:center;gap:14px;
+  font-size:0.88rem;color:var(--textlight);
+}
+.highlight-box strong{color:var(--rosedark);}
+
+/* ===== PAGOS ===== */
+.pay-row{
+  display:flex;gap:14px;flex-wrap:wrap;
+}
+.pay-chip{
+  background:var(--warmwhite);
+  border:1px solid rgba(143,168,138,0.3);
+  border-radius:50px;padding:11px 24px;
+  font-size:0.85rem;color:var(--sagedark);font-weight:500;
+  display:flex;align-items:center;gap:8px;
+}
+.pay-chip svg{width:20px;height:20px;opacity:0.7;}
+
+/* ===== CONTACTO ===== */
+.contact-wrap{
+  display:grid;grid-template-columns:1fr 1fr;gap:40px;
+  align-items:start;
+}
+@media(max-width:700px){.contact-wrap{grid-template-columns:1fr;}}
+.contact-info-block h3{
+  font-family:'Cormorant Garamond',serif;
+  font-size:1.4rem;font-weight:400;margin-bottom:20px;color:var(--text);
+}
+.contact-item{
+  display:flex;gap:14px;align-items:flex-start;
+  margin-bottom:18px;
+}
+.ci-icon{
+  width:40px;height:40px;flex-shrink:0;
+  background:var(--blush);border-radius:12px;
+  display:flex;align-items:center;justify-content:center;
+  font-size:1.1rem;
+}
+.ci-label{font-size:0.7rem;color:var(--textmuted);letter-spacing:0.1em;text-transform:uppercase;}
+.ci-val{font-size:0.9rem;color:var(--text);margin-top:1px;}
+.ci-val a{color:var(--text);text-decoration:none;}
+
+.schedule-row{
+  display:flex;gap:10px;flex-wrap:wrap;margin-top:24px;
+}
+.day-chip{
+  background:linear-gradient(135deg,var(--blush),rgba(234,240,234,0.7));
+  border:1px solid rgba(200,140,120,0.2);
+  border-radius:12px;padding:12px 18px;text-align:center;
+  min-width:120px;
+}
+.day-chip .dname{
+  font-size:0.72rem;letter-spacing:0.1em;text-transform:uppercase;
+  color:var(--rose);font-weight:600;
+}
+.day-chip .dhours{font-size:0.85rem;color:var(--textlight);margin-top:3px;}
+
+/* ===== FORMULARIO TURNO ===== */
+.form-section{
+  background:var(--warmwhite);
+  border:1px solid rgba(200,140,120,0.18);
+  border-radius:24px;padding:40px 36px;
+  position:relative;overflow:hidden;
+}
+.form-section::before{
+  content:'';position:absolute;top:-60px;right:-60px;
+  width:200px;height:200px;border-radius:50%;
+  background:radial-gradient(circle,rgba(200,140,120,0.1),transparent 70%);
+}
+
+.form-title{
+  font-family:'Cormorant Garamond',serif;
+  font-size:1.6rem;font-weight:400;
+  color:var(--text);margin-bottom:6px;
+}
+.form-sub{font-size:0.85rem;color:var(--textmuted);margin-bottom:28px;}
+
+.form-grid{
+  display:grid;grid-template-columns:1fr 1fr;gap:18px;
+}
+@media(max-width:600px){.form-grid{grid-template-columns:1fr;}}
+.form-full{grid-column:1/-1;}
+
+.fgroup{display:flex;flex-direction:column;gap:6px;}
+.fgroup label{
+  font-size:0.72rem;letter-spacing:0.1em;text-transform:uppercase;
+  color:var(--textmuted);font-weight:500;
+}
+.fgroup input,
+.fgroup select,
+.fgroup textarea{
+  background:#fff;
+  border:1px solid rgba(200,140,120,0.25);
+  border-radius:10px;padding:12px 16px;
+  font-family:'Nunito',sans-serif;font-size:0.9rem;
+  color:var(--text);outline:none;
+  transition:border-color 0.2s,box-shadow 0.2s;
+  -webkit-appearance:none;
+}
+.fgroup input::placeholder,
+.fgroup textarea::placeholder{color:var(--textmuted);}
+.fgroup input:focus,
+.fgroup select:focus,
+.fgroup textarea:focus{
+  border-color:var(--rose);
+  box-shadow:0 0 0 3px rgba(201,137,122,0.12);
+}
+.fgroup select{
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%23b09890'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M19 9l-7 7-7-7'/%3E%3C/svg%3E");
+  background-repeat:no-repeat;background-position:right 14px center;background-size:16px;
+  padding-right:40px;cursor:pointer;
+}
+.fgroup textarea{min-height:100px;resize:vertical;}
+
+/* Radio / Checkbox groups */
+.radio-group{
+  display:flex;gap:10px;flex-wrap:wrap;
+}
+.radio-opt{
+  display:flex;align-items:center;gap:7px;
+  background:#fff;border:1px solid rgba(200,140,120,0.25);
+  border-radius:8px;padding:9px 16px;
+  cursor:pointer;font-size:0.88rem;color:var(--textlight);
+  transition:all 0.2s;
+}
+.radio-opt:hover{border-color:var(--rose);color:var(--rose);}
+.radio-opt input{
+  accent-color:var(--rose);width:15px;height:15px;
+  cursor:pointer;padding:0;border:none;background:none;
+  box-shadow:none;
+}
+.radio-opt input:focus{box-shadow:none;}
+
+/* Conditional fields */
+.cond-field{
+  overflow:hidden;max-height:0;opacity:0;
+  transition:max-height 0.4s ease,opacity 0.3s ease,margin 0.3s;
+  margin-top:0;
+}
+.cond-field.visible{max-height:300px;opacity:1;margin-top:6px;}
+
+.form-note{
+  font-size:0.76rem;color:var(--textmuted);
+  margin-top:8px;display:flex;align-items:center;gap:6px;
+}
+
+.btn-submit{
+  margin-top:28px;
+  background:linear-gradient(135deg,var(--rose),var(--rosedark));
+  color:#fff;border:none;
+  padding:16px 40px;border-radius:50px;
+  font-family:'Nunito',sans-serif;font-size:0.92rem;font-weight:600;
+  letter-spacing:0.06em;cursor:pointer;
+  transition:transform 0.2s,box-shadow 0.2s;
+  box-shadow:0 8px 28px rgba(201,137,122,0.35);
+  width:100%;
+}
+.btn-submit:hover{transform:translateY(-2px);box-shadow:0 12px 35px rgba(201,137,122,0.45);}
+
+/* Confirm toast */
+.toast{
+  display:none;
+  background:linear-gradient(135deg,var(--sage),var(--sagedark));
+  color:#fff;border-radius:16px;padding:20px 26px;
+  margin-top:20px;font-size:0.9rem;line-height:1.6;
+  animation:fadeSlide 0.4s ease;
+}
+.toast.show{display:block;}
+@keyframes fadeSlide{from{opacity:0;transform:translateY(10px);}to{opacity:1;transform:translateY(0);}}
+
+/* ===== FOOTER ===== */
+footer{
+  background:linear-gradient(135deg,#3d2f2b,#2a1f1c);
+  color:rgba(255,255,255,0.6);
+  text-align:center;padding:40px 20px;
+  position:relative;overflow:hidden;
+}
+.footer-name{
+  font-family:'Cormorant Garamond',serif;
+  font-size:1.4rem;font-weight:300;
+  color:rgba(255,255,255,0.85);margin-bottom:6px;
+}
+.footer-sub{font-size:0.78rem;letter-spacing:0.1em;margin-bottom:18px;}
+.footer-bottom{font-size:0.72rem;margin-top:18px;opacity:0.5;}
+
+/* WhatsApp flotante */
+.wa-btn{
+  position:fixed;bottom:24px;right:24px;z-index:200;
+  background:#25D366;color:#fff;
+  width:58px;height:58px;border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  text-decoration:none;
+  box-shadow:0 6px 24px rgba(37,211,102,0.4);
+  transition:transform 0.2s,box-shadow 0.2s;
+  animation:pulse 2.5s ease infinite;
+}
+.wa-btn:hover{transform:scale(1.1);animation:none;box-shadow:0 10px 30px rgba(37,211,102,0.5);}
+@keyframes pulse{
+  0%,100%{box-shadow:0 6px 24px rgba(37,211,102,0.4);}
+  50%{box-shadow:0 6px 36px rgba(37,211,102,0.65);}
+}
+.wa-btn svg{width:30px;height:30px;}
+
+/* ===== FLORAL DECORATIONS (pure CSS) ===== */
+.floral-corner{
+  position:absolute;pointer-events:none;opacity:0.22;
+}
+
+/* Fade in sections on scroll */
+.fade-in{
+  opacity:0;transform:translateY(28px);
+  transition:opacity 0.7s ease,transform 0.7s ease;
+}
+.fade-in.visible{opacity:1;transform:translateY(0);}
+
+/* ===== RESPONSIVE ===== */
+@media(max-width:700px){
+  .hero-inner{gap:36px;}
+  .hero-photo{width:180px;height:180px;}
+  .hero-text{text-align:center;}
+  .nav-links{display:none;}
+}
+</style>
+</head>
+<body>
+
+<!-- ===== FLOATING FLORAL SVG BG ===== -->
+<svg class="floral-bg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <radialGradient id="petal1" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#e8b5a8" stop-opacity="0.6"/>
+      <stop offset="100%" stop-color="#e8b5a8" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="petal2" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#a8c4a2" stop-opacity="0.5"/>
+      <stop offset="100%" stop-color="#a8c4a2" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <!-- Top right flower -->
+  <g transform="translate(1320,80)">
+    <ellipse rx="45" ry="20" fill="url(#petal1)" transform="rotate(0)"/>
+    <ellipse rx="45" ry="20" fill="url(#petal1)" transform="rotate(45)"/>
+    <ellipse rx="45" ry="20" fill="url(#petal1)" transform="rotate(90)"/>
+    <ellipse rx="45" ry="20" fill="url(#petal1)" transform="rotate(135)"/>
+    <circle r="12" fill="#e8b5a8" opacity="0.5"/>
+  </g>
+  <!-- Top right small -->
+  <g transform="translate(1410,200)">
+    <ellipse rx="28" ry="12" fill="url(#petal2)" transform="rotate(30)"/>
+    <ellipse rx="28" ry="12" fill="url(#petal2)" transform="rotate(90)"/>
+    <ellipse rx="28" ry="12" fill="url(#petal2)" transform="rotate(150)"/>
+    <circle r="7" fill="#a8c4a2" opacity="0.4"/>
+  </g>
+  <!-- Bottom left -->
+  <g transform="translate(60,800)">
+    <ellipse rx="50" ry="22" fill="url(#petal1)" transform="rotate(20)"/>
+    <ellipse rx="50" ry="22" fill="url(#petal1)" transform="rotate(80)"/>
+    <ellipse rx="50" ry="22" fill="url(#petal1)" transform="rotate(140)"/>
+    <ellipse rx="50" ry="22" fill="url(#petal1)" transform="rotate(200)"/>
+    <circle r="13" fill="#e8b5a8" opacity="0.4"/>
+  </g>
+  <!-- Center left -->
+  <g transform="translate(30,430)">
+    <ellipse rx="35" ry="15" fill="url(#petal2)" transform="rotate(10)"/>
+    <ellipse rx="35" ry="15" fill="url(#petal2)" transform="rotate(70)"/>
+    <ellipse rx="35" ry="15" fill="url(#petal2)" transform="rotate(130)"/>
+    <circle r="8" fill="#a8c4a2" opacity="0.35"/>
+  </g>
+  <!-- Bottom right -->
+  <g transform="translate(1400,750)">
+    <ellipse rx="40" ry="18" fill="url(#petal1)" transform="rotate(15)"/>
+    <ellipse rx="40" ry="18" fill="url(#petal1)" transform="rotate(75)"/>
+    <ellipse rx="40" ry="18" fill="url(#petal1)" transform="rotate(135)"/>
+    <ellipse rx="40" ry="18" fill="url(#petal1)" transform="rotate(195)"/>
+    <circle r="10" fill="#e8b5a8" opacity="0.4"/>
+  </g>
+  <!-- Scattered small dots / buds -->
+  <circle cx="200" cy="120" r="4" fill="#e8b5a8" opacity="0.3"/>
+  <circle cx="320" cy="60" r="3" fill="#a8c4a2" opacity="0.3"/>
+  <circle cx="1100" cy="880" r="5" fill="#e8b5a8" opacity="0.25"/>
+  <circle cx="900" cy="30" r="3" fill="#a8c4a2" opacity="0.3"/>
+  <!-- Leaf / branch lines -->
+  <path d="M1350 150 Q1370 130 1390 110" stroke="#a8c4a2" stroke-width="1.5" fill="none" opacity="0.35"/>
+  <path d="M1370 160 Q1395 145 1410 125" stroke="#a8c4a2" stroke-width="1" fill="none" opacity="0.25"/>
+  <path d="M50 780 Q70 760 90 740" stroke="#e8b5a8" stroke-width="1.5" fill="none" opacity="0.35"/>
+</svg>
+
+<!-- ===== NAV ===== -->
+<nav>
+  <div class="nav-inner">
+    <div class="nav-logo"><em>Romina</em> Zapata</div>
+    <ul class="nav-links">
+      <li><a href="#servicios">Servicios</a></li>
+      <li><a href="#consultas">Consultas</a></li>
+      <li><a href="#contacto">Contacto</a></li>
+      <li><a href="#turno">Reservar Turno</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- ===== HERO ===== -->
+<div class="hero">
+  <!-- SVG florals in hero -->
+  <svg class="hero-floral" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 700">
+    <defs>
+      <radialGradient id="hp1" cx="50%" cy="50%" r="50%">
+        <stop offset="0%" stop-color="#d4a090" stop-opacity="0.45"/>
+        <stop offset="100%" stop-color="#d4a090" stop-opacity="0"/>
+      </radialGradient>
+      <radialGradient id="hp2" cx="50%" cy="50%" r="50%">
+        <stop offset="0%" stop-color="#9bb89a" stop-opacity="0.4"/>
+        <stop offset="100%" stop-color="#9bb89a" stop-opacity="0"/>
+      </radialGradient>
+    </defs>
+    <!-- Large petal clusters in corners -->
+    <g transform="translate(1150,80)">
+      <ellipse rx="70" ry="28" fill="url(#hp1)" transform="rotate(0)"/>
+      <ellipse rx="70" ry="28" fill="url(#hp1)" transform="rotate(40)"/>
+      <ellipse rx="70" ry="28" fill="url(#hp1)" transform="rotate(80)"/>
+      <ellipse rx="70" ry="28" fill="url(#hp1)" transform="rotate(120)"/>
+      <ellipse rx="70" ry="28" fill="url(#hp1)" transform="rotate(160)"/>
+      <circle r="18" fill="#d4a090" opacity="0.4"/>
+    </g>
+    <g transform="translate(50,600)">
+      <ellipse rx="55" ry="22" fill="url(#hp2)" transform="rotate(20)"/>
+      <ellipse rx="55" ry="22" fill="url(#hp2)" transform="rotate(80)"/>
+      <ellipse rx="55" ry="22" fill="url(#hp2)" transform="rotate(140)"/>
+      <ellipse rx="55" ry="22" fill="url(#hp2)" transform="rotate(200)"/>
+      <circle r="14" fill="#9bb89a" opacity="0.35"/>
+    </g>
+    <g transform="translate(600,660)">
+      <ellipse rx="40" ry="16" fill="url(#hp1)" transform="rotate(15)"/>
+      <ellipse rx="40" ry="16" fill="url(#hp1)" transform="rotate(75)"/>
+      <ellipse rx="40" ry="16" fill="url(#hp1)" transform="rotate(135)"/>
+      <circle r="10" fill="#d4a090" opacity="0.3"/>
+    </g>
+    <!-- Delicate stems -->
+    <path d="M1100 150 C1120 120 1140 100 1150 80" stroke="#d4a090" stroke-width="1.5" fill="none" opacity="0.4"/>
+    <path d="M1080 170 C1110 140 1130 110 1150 80" stroke="#9bb89a" stroke-width="1" fill="none" opacity="0.3"/>
+    <path d="M30 640 C40 620 45 610 50 600" stroke="#9bb89a" stroke-width="1.5" fill="none" opacity="0.35"/>
+  </svg>
+
+  <div class="hero-inner">
+    <div class="hero-photo-wrap">
+      <img src="romina.jpg" class="hero-photo" alt="Lic. Romina Zapata">
+    </div>
+    <div class="hero-text">
+      <div class="hero-tag">Psicóloga Clínica · Mat. Provincial</div>
+      <h1 class="hero-name">Lic. <em>Romina</em><br>Zapata</h1>
+      <p class="hero-subtitle">+15 años acompañando procesos de crecimiento personal</p>
+      <div class="hero-badge">
+        <span>🌿</span> Atención online y presencial · Cipolletti, Río Negro
+      </div>
+      <br>
+      <a class="hero-cta" href="#turno">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+        Solicitar turno
+      </a>
+    </div>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- ===== SERVICIOS ===== -->
+<section id="servicios" class="fade-in">
+  <div class="section-tag">Lo que ofrezco</div>
+  <h2 class="section-title">Servicios <em>Profesionales</em></h2>
+
+  <div class="cards-grid">
+    <div class="svc-card">
+      <div class="svc-icon">🌱</div>
+      <h3>Orientación Vocacional y Ocupacional</h3>
+      <p>Acompaño a adolescentes y jóvenes en procesos de orientación vocacional y ocupacional, generando un espacio de escucha, exploración y reflexión sobre sus intereses, habilidades y proyectos a futuro.</p>
+      <ul>
+        <li>Identificar intereses y áreas de afinidad</li>
+        <li>Reconocer habilidades y recursos personales</li>
+        <li>Explorar opciones educativas y laborales</li>
+        <li>Trabajar dudas, miedos y presiones</li>
+        <li>Fortalecer la toma de decisiones</li>
+      </ul>
+      <p style="font-size:0.8rem;color:var(--textmuted);margin-top:14px;">Cada proceso es individual y adaptado a cada persona. <strong style="color:var(--rose)">Solo presencial.</strong></p>
+    </div>
+
+    <div class="svc-card">
+      <div class="svc-icon">🕊️</div>
+      <h3>Atención a Adultos</h3>
+      <p>Espacio terapéutico para trabajar distintos aspectos de la vida personal, en modalidad presencial u online.</p>
+      <ul>
+        <li>Crisis o cambios vitales</li>
+        <li>Ansiedad o malestar emocional</li>
+        <li>Dificultades vinculares</li>
+        <li>Revisión personal</li>
+        <li>Toma de decisiones</li>
+      </ul>
+      <p style="font-size:0.82rem;color:var(--textmuted);margin-top:14px;">Un espacio para pensar(se), comprender y construir nuevas formas de vivir.</p>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ===== CONSULTAS ===== -->
+<section id="consultas" class="fade-in">
+  <div class="section-tag">Información práctica</div>
+  <h2 class="section-title">Sobre las <em>Consultas</em></h2>
+
+  <div class="info-grid">
+    <div class="info-pill">
+      <div class="label">Duración</div>
+      <div class="val">40 min</div>
+      <div class="sub">por sesión</div>
+    </div>
+    <div class="info-pill">
+      <div class="label">Modalidad</div>
+      <div class="val">Online</div>
+      <div class="sub">+ Presencial</div>
+    </div>
+    <div class="info-pill">
+      <div class="label">Internacional</div>
+      <div class="val">USD/EUR</div>
+      <div class="sub">40 por sesión</div>
+    </div>
+    <div class="info-pill">
+      <div class="label">1ª Consulta</div>
+      <div class="val">50% off</div>
+      <div class="sub">descuento bienvenida</div>
+    </div>
+  </div>
+
+  <div class="highlight-box">
+    <span style="font-size:1.5rem">🔒</span>
+    <div><strong>Profesionalidad y confidencialidad garantizadas.</strong><br>
+    Cada proceso es único y acompañado con total discreción y ética profesional.</div>
+  </div>
+
+  <h3 style="font-family:'Cormorant Garamond',serif;font-weight:400;font-size:1.3rem;margin-top:36px;margin-bottom:16px;color:var(--text)">Medios de <em style="font-style:italic;color:var(--rose)">Pago</em></h3>
+  <div class="pay-row">
+    <div class="pay-chip">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z"/></svg>
+      Transferencia bancaria
+    </div>
+    <div class="pay-chip">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+      Mercado Pago
+    </div>
+    <div class="pay-chip">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"/></svg>
+      PayPal (internacional)
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ===== CONTACTO ===== -->
+<section id="contacto" class="fade-in">
+  <div class="section-tag">Encontrame</div>
+  <h2 class="section-title"><em>Contacto</em> y Horarios</h2>
+
+  <div class="contact-wrap">
+    <div class="contact-info-block">
+      <h3>Datos de contacto</h3>
+
+      <div class="contact-item">
+        <div class="ci-icon">📱</div>
+        <div>
+          <div class="ci-label">WhatsApp</div>
+          <div class="ci-val"><a href="https://wa.me/5492995932321">+54 9 299 5932321</a></div>
+        </div>
+      </div>
+
+      <div class="contact-item">
+        <div class="ci-icon">✉️</div>
+        <div>
+          <div class="ci-label">Email</div>
+          <div class="ci-val"><a href="mailto:rominaazapata13@gmail.com">rominaazapata13@gmail.com</a></div>
+        </div>
+      </div>
+
+      <div class="contact-item">
+        <div class="ci-icon">📍</div>
+        <div>
+          <div class="ci-label">Dirección</div>
+          <div class="ci-val">Bernardo O'Higgins 297<br>Cipolletti, Río Negro</div>
+        </div>
+      </div>
+
+      <div class="schedule-row">
+        <div class="day-chip">
+          <div class="dname">Miércoles</div>
+          <div class="dhours">13 – 20 hs</div>
+        </div>
+        <div class="day-chip">
+          <div class="dname">Jueves</div>
+          <div class="dhours">13 – 20 hs</div>
+        </div>
+        <div class="day-chip">
+          <div class="dname">Viernes</div>
+          <div class="dhours">8 – 14 hs</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===== FORMULARIO TURNO ===== -->
+    <div class="form-section" id="turno">
+      <div class="form-title">Solicitar Turno</div>
+      <div class="form-sub">Completá el formulario y me comunico a la brevedad 🌸</div>
+
+      <form id="appointmentForm" novalidate>
+        <div class="form-grid">
+
+          <!-- Nombre -->
+          <div class="fgroup">
+            <label for="nombre">Nombre completo *</label>
+            <input type="text" id="nombre" placeholder="Ej: Lucía Fernández" required>
+          </div>
+
+          <!-- Edad -->
+          <div class="fgroup">
+            <label for="edad">Edad *</label>
+            <input type="number" id="edad" placeholder="Ej: 28" min="10" max="99" required>
+          </div>
+
+          <!-- Sexo -->
+          <div class="fgroup form-full">
+            <label>Género / Sexo *</label>
+            <div class="radio-group">
+              <label class="radio-opt">
+                <input type="radio" name="sexo" value="Femenino" required> Femenino
+              </label>
+              <label class="radio-opt">
+                <input type="radio" name="sexo" value="Masculino"> Masculino
+              </label>
+              <label class="radio-opt">
+                <input type="radio" name="sexo" value="No binario"> No binario
+              </label>
+              <label class="radio-opt">
+                <input type="radio" name="sexo" value="Prefiero no decir"> Prefiero no especificar
+              </label>
+            </div>
+          </div>
+
+          <!-- Tipo de atención -->
+          <div class="fgroup form-full">
+            <label for="atencion">Tipo de atención que requiero *</label>
+            <select id="atencion" required onchange="handleAtencion(this.value)">
+              <option value="" disabled selected>Seleccioná una opción…</option>
+              <option value="Orientación Vocacional y Ocupacional">Orientación Vocacional y Ocupacional</option>
+              <option value="Atención a Adultos">Atención a Adultos</option>
+            </select>
+          </div>
+
+          <!-- Modalidad (condicional) -->
+          <div class="fgroup form-full cond-field" id="modalidadField">
+            <label>Modalidad preferida *</label>
+            <div class="radio-group">
+              <label class="radio-opt">
+                <input type="radio" name="modalidad" value="Presencial"> Presencial
+              </label>
+              <label class="radio-opt" id="onlineOpt">
+                <input type="radio" name="modalidad" value="Online / Virtual"> Online / Virtual
+              </label>
+            </div>
+            <p class="form-note" id="modalidadNota" style="display:none;">
+              ℹ️ La Orientación Vocacional se realiza solo de forma <strong>presencial</strong>.
+            </p>
+          </div>
+
+          <!-- Tratamientos previos -->
+          <div class="fgroup form-full">
+            <label>¿Tuviste tratamientos psicológicos previos? *</label>
+            <div class="radio-group">
+              <label class="radio-opt">
+                <input type="radio" name="tratamiento" value="No" required onchange="handleTratamiento(this.value)"> No
+              </label>
+              <label class="radio-opt">
+                <input type="radio" name="tratamiento" value="Sí" onchange="handleTratamiento(this.value)"> Sí
+              </label>
+            </div>
+          </div>
+
+          <!-- Descripción tratamiento previo (condicional) -->
+          <div class="fgroup form-full cond-field" id="tratamientoDesc">
+            <label for="tratDesc">Contame brevemente o indicá el diagnóstico</label>
+            <textarea id="tratDesc" placeholder="Podés compartir el tipo de terapia, duración, diagnóstico o lo que consideres relevante…"></textarea>
+          </div>
+
+          <!-- Motivo de consulta -->
+          <div class="fgroup form-full">
+            <label for="motivo">¿Qué te trae a consulta? *</label>
+            <textarea id="motivo" placeholder="Describí brevemente el motivo de tu consulta…" required style="min-height:80px;"></textarea>
+          </div>
+
+          <!-- Contacto -->
+          <div class="fgroup">
+            <label for="whatsapp">WhatsApp / Teléfono *</label>
+            <input type="tel" id="whatsapp" placeholder="+54 9 299 …" required>
+          </div>
+
+          <div class="fgroup">
+            <label for="email">Email (opcional)</label>
+            <input type="email" id="email" placeholder="tu@correo.com">
+          </div>
+
+        </div>
+
+        <button type="submit" class="btn-submit">🌸 Enviar solicitud de turno</button>
+      </form>
+
+      <div class="toast" id="successToast">
+        ✅ <strong>¡Solicitud enviada con éxito!</strong><br>
+        Gracias por comunicarte. Me pondré en contacto con vos a la brevedad para confirmar tu turno. ¡Hasta pronto! 🌿
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer>
+  <svg style="position:absolute;bottom:0;left:0;width:100%;opacity:0.07;pointer-events:none" viewBox="0 0 800 200" xmlns="http://www.w3.org/2000/svg">
+    <g transform="translate(750,100)">
+      <ellipse rx="55" ry="22" fill="#e8b5a8" transform="rotate(10)"/>
+      <ellipse rx="55" ry="22" fill="#e8b5a8" transform="rotate(70)"/>
+      <ellipse rx="55" ry="22" fill="#e8b5a8" transform="rotate(130)"/>
+      <circle r="14" fill="#e8b5a8"/>
+    </g>
+    <g transform="translate(50,150)">
+      <ellipse rx="40" ry="16" fill="#9bb89a" transform="rotate(20)"/>
+      <ellipse rx="40" ry="16" fill="#9bb89a" transform="rotate(80)"/>
+      <ellipse rx="40" ry="16" fill="#9bb89a" transform="rotate(140)"/>
+      <circle r="10" fill="#9bb89a"/>
+    </g>
+  </svg>
+  <div class="footer-name">Lic. Romina Zapata</div>
+  <div class="footer-sub" style="letter-spacing:0.15em;font-size:0.72rem;color:rgba(255,255,255,0.45)">PSICÓLOGA CLÍNICA · CIPOLLETTI, RÍO NEGRO</div>
+  <div style="display:flex;gap:18px;justify-content:center;flex-wrap:wrap;font-size:0.82rem;">
+    <a href="https://wa.me/5492995932321" style="color:rgba(255,255,255,0.6);text-decoration:none;">+54 9 299 5932321</a>
+    <span style="opacity:0.3">·</span>
+    <a href="mailto:rominaazapata13@gmail.com" style="color:rgba(255,255,255,0.6);text-decoration:none;">rominaazapata13@gmail.com</a>
+  </div>
+  <div class="footer-bottom">© 2026 Lic. Romina Zapata — Todos los derechos reservados</div>
+</footer>
+
+<!-- WhatsApp flotante -->
+<a class="wa-btn" href="https://wa.me/5492995932321" target="_blank" title="Escribime por WhatsApp">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white">
+    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+  </svg>
+</a>
+
+<script>
+// ===== SCROLL FADE IN =====
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if(e.isIntersecting){ e.target.classList.add('visible'); }
+  });
+}, { threshold: 0.12 });
+document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+// ===== ATENCION LOGIC =====
+function handleAtencion(val) {
+  const mField = document.getElementById('modalidadField');
+  const nota = document.getElementById('modalidadNota');
+  const onlineOpt = document.getElementById('onlineOpt');
+  const onlineInput = onlineOpt.querySelector('input');
+
+  mField.classList.add('visible');
+
+  if(val === 'Orientación Vocacional y Ocupacional') {
+    nota.style.display = 'flex';
+    onlineOpt.style.opacity = '0.4';
+    onlineOpt.style.pointerEvents = 'none';
+    if(onlineInput.checked){
+      onlineInput.checked = false;
+    }
+    // Auto-select presencial
+    document.querySelector('input[name="modalidad"][value="Presencial"]').checked = true;
+  } else {
+    nota.style.display = 'none';
+    onlineOpt.style.opacity = '1';
+    onlineOpt.style.pointerEvents = 'auto';
+  }
+}
+
+// ===== TRATAMIENTO PREVIO =====
+function handleTratamiento(val) {
+  const desc = document.getElementById('tratamientoDesc');
+  if(val === 'Sí') {
+    desc.classList.add('visible');
+  } else {
+    desc.classList.remove('visible');
+  }
+}
+
+// ===== FORM SUBMIT =====
+document.getElementById('appointmentForm').addEventListener('submit', function(e){
+  e.preventDefault();
+
+  // Basic validation
+  const nombre = document.getElementById('nombre').value.trim();
+  const edad = document.getElementById('edad').value.trim();
+  const sexo = document.querySelector('input[name="sexo"]:checked');
+  const atencion = document.getElementById('atencion').value;
+  const tratamiento = document.querySelector('input[name="tratamiento"]:checked');
+  const motivo = document.getElementById('motivo').value.trim();
+  const tel = document.getElementById('whatsapp').value.trim();
+
+  if(!nombre || !edad || !sexo || !atencion || !tratamiento || !motivo || !tel){
+    alert('Por favor completá todos los campos obligatorios (*).');
+    return;
+  }
+
+  // Build WhatsApp message
+  const modalidad = document.querySelector('input[name="modalidad"]:checked');
+  const tratDesc = document.getElementById('tratDesc').value.trim();
+  const email = document.getElementById('email').value.trim();
+
+  let msg = `*Solicitud de Turno*\n\n`;
+  msg += `👤 *Nombre:* ${nombre}\n`;
+  msg += `🎂 *Edad:* ${edad}\n`;
+  msg += `⚧ *Género:* ${sexo.value}\n`;
+  msg += `📋 *Atención:* ${atencion}\n`;
+  msg += `🖥️ *Modalidad:* ${modalidad ? modalidad.value : 'A confirmar'}\n`;
+  msg += `🧠 *Tratamiento previo:* ${tratamiento.value}\n`;
+  if(tratamiento.value === 'Sí' && tratDesc) msg += `   Detalle: ${tratDesc}\n`;
+  msg += `💬 *Motivo:* ${motivo}\n`;
+  msg += `📞 *Teléfono:* ${tel}\n`;
+  if(email) msg += `📧 *Email:* ${email}\n`;
+
+  const waUrl = `https://wa.me/5492995932321?text=${encodeURIComponent(msg)}`;
+  window.open(waUrl, '_blank');
+
+  // Show success toast
+  document.getElementById('successToast').classList.add('show');
+  document.getElementById('appointmentForm').reset();
+
+  // Hide conditional fields
+  document.getElementById('modalidadField').classList.remove('visible');
+  document.getElementById('tratamientoDesc').classList.remove('visible');
+
+  setTimeout(() => {
+    document.getElementById('successToast').classList.remove('show');
+  }, 7000);
+});
+</script>
+
+</body>
+</html>
